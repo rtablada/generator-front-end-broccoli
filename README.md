@@ -1,6 +1,6 @@
-# SASS Broccoli Qunit Generator
+# Front End Broccoli Generator
 
-This Yeoman generator will create a simple Broccoli project that comes setup for web development with SASS, Rollup (for module loading), ES6 transpiling using Babel, and QUnit tests with Testem.
+This Yeoman generator will create a simple Broccoli project that comes setup for front end web development with SASS, Rollup (for javascript module loading), ES6 transpiling using Babel, and QUnit tests with Testem.
 It also will install [Yoga Sass](http://rtablada.github.io/yoga-sass), [Font Awesome](http://fontawesome.io), and [Normalize CSS](https://necolas.github.io/normalize.css/).
 
 Although no extra packages are installed, each project can easily be migrated to using Vue.js with routing and template compilation. See ["Using Vue"](#using-vue).
@@ -8,11 +8,10 @@ Although no extra packages are installed, each project can easily be migrated to
 ## Installing the Generator
 
 ```bash
-npm install -g yarn yo generator-qunit-broccoli
+yarn global add yo generator-front-end-broccoli
 ```
 
 > **UPGRADE NOTE** This Generator has be updated to use [`yarn`](https://yarnpkg.com/) to start projects MUCH faster _see [below for benchmarks](#yarn-benchmarks)_.
-> To take advantage of this just install yarn with `npm install -g yarn`.
 
 ## Creating Projects
 
@@ -29,7 +28,7 @@ This will ask you for your project name, and a few details to get up and started
 Once the project has been created, move into the directory and then run:
 
 ```bash
-npm run start
+yarn start:sass
 ```
 
 The `Brocfile.js` injects live reload into HTML files in the `public` directory.
@@ -40,7 +39,7 @@ This command is backed by `ember-cli` which will fire a reload whenever Broccoli
 To build the project into a final production build, run:
 
 ```bash
-npm run build
+yarn build:sass
 ```
 
 This will build the project into a `dist` directory that can be uploaded to services such as Firebase, Surge, or AWS.
@@ -116,7 +115,7 @@ This project comes with [SASS Lint](https://github.com/sasstools/qunit-lint) sup
 To run SASS lint, run the command:
 
 ```bash
-npm run lint
+yarn lint:sass
 ```
 
 The rules installed beyond the [SASS Lint](https://github.com/sasstools/qunit-lint/blob/master/lib/config/qunit-lint.yml) defaults:
@@ -132,6 +131,31 @@ The rules installed beyond the [SASS Lint](https://github.com/sasstools/qunit-li
   - Background
   - Text
   - Other
+
+## Linting JS
+
+This project comes configured with ESLint support.
+To run lint for the project run the command:
+
+```bash
+yarn lint:js
+```
+
+There is also a command for auto fixing most linting errors:
+
+```bash
+yarn lint:js-fix
+```
+
+## Deploying with Surge
+
+To help quickly deploy your project to Surge.sh, there is a setup yarn command.
+
+```bash
+yarn deploy
+```
+
+To claim your own site, change the `my-app.surge.sh` to your domain name.
 
 ## Yarn Benchmarks
 

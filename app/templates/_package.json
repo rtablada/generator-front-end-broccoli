@@ -7,8 +7,9 @@
     "start": "ember serve -lrp 35729",
     "test": "ember test -s",
     "build": "ember build",
-    "lint": "sass-lint",
-    "esfix": "eslint src --fix && eslint tests --fix",
+    "lint:sass": "sass-lint",
+    "lint:js": "eslint src && eslint tests",
+    "lint:js-fix": "eslint src --fix && eslint tests --fix",
     "deploy": "ember build -e production && cp dist/index.html dist/200.html && surge dist my-app.surge.sh",
     "setup:vue": "yarn add vue vue-router && yarn add --dev rollup-plugin-vue eslint-plugin-html",
     "setup:json-server": "yarn add --dev json-server"
